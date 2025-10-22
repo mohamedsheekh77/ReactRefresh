@@ -1,51 +1,25 @@
-import {useState} from "react"
+import { useState } from "react"
+
+const NumberCount = () => {
+    const [count, SetCount]= useState (0);
+    
+    const increaseCount = () =>{
+        SetCount((prev)=> prev +1);
+    }
+    const decreaseCount = () =>{
+        SetCount((prev)=> prev -1);
+    }
 
 
-const ReportCard = ({name, subject, grade, teacher, pass}) => {
-
-    const [showGrade, setShowGrade] = useState(false);
-
-  // Function to update state when button clicked
-  const handleShowGrade = () => {
-    setShowGrade(true);
-  };
-
-
-
-    return (
-        <div className = "ReportCard">
-            <h1> Hi</h1>
-            <p> {name}</p>
-            <p> {subject}</p>
-            {showGrade && <p>Grade: {grade}</p>}
-            <p> {teacher}</p>
-            <p>Passed: {pass ? " pass" : " fail"}</p>
-           
-
-            <button onClick={handleShowGrade} type="button"> check to see your grade </button>
-        </div>
-        
-        
-    )
-}
-
-const ReportCardShowcase =() => {
+    
     return(
-        <div className="ReportCardShowcase">
-            <ReportCard
-            name = "mohamed"
-            subject = "economics"
-            grade = "A*"
-            teacher ="Tomasso"
-            pass= {true}
-            
-
-            />
-       
+        <div className="Number count">
+            <p> Number counter:{count} </p>
+            <button onClick={increaseCount} > Increase Counter </button>
+            <button onClick={decreaseCount}> decrease </button>
         </div>
-
+        
     )
 }
-
-export default ReportCardShowcase 
+export default NumberCount 
 
