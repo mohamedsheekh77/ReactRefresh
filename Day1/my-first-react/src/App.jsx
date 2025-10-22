@@ -1,66 +1,51 @@
-const ReportCard = ({studentName, subject, grade, teacher, passed}) => {
-  let resultMessage;
-  if (grade === "A" || grade === "B" || grade === "C") {
-    resultMessage = "Passed";
-  } else if (grade === "D" || grade === "E") {
-    resultMessage = "Just About Passed";
-  } else {
-    resultMessage = "Failed";
-  }
+import {useState} from "react"
 
-  return( 
-    <div className="ReportCard">
-      <h1> Report Card</h1>
-      <p> {studentName}</p>
-      <p> {subject} </p>
-      <p> {grade}</p>
-      <p>{teacher}</p>
-      <p>{passed}</p>
-      <p> {resultMessage}</p>
-    </div>
-  )
+
+const ReportCard = ({name, subject, grade, teacher, pass}) => {
+
+    const [showGrade, setShowGrade] = useState(false);
+
+  // Function to update state when button clicked
+  const handleShowGrade = () => {
+    setShowGrade(true);
+  };
+
+
+
+    return (
+        <div className = "ReportCard">
+            <h1> Hi</h1>
+            <p> {name}</p>
+            <p> {subject}</p>
+            {showGrade && <p>Grade: {grade}</p>}
+            <p> {teacher}</p>
+            <p>Passed: {pass ? " pass" : " fail"}</p>
+           
+
+            <button onClick={handleShowGrade} type="button"> check to see your grade </button>
+        </div>
+        
+        
+    )
 }
 
+const ReportCardShowcase =() => {
+    return(
+        <div className="ReportCardShowcase">
+            <ReportCard
+            name = "mohamed"
+            subject = "economics"
+            grade = "A*"
+            teacher ="Tomasso"
+            pass= {true}
+            
 
-const ReportCards = () => {
-  return (
-    <div className="ReportCardShowcase">
-      <ReportCard 
-      studentName = "Mohamed"
-      subject = "Economics"
-      grade = "A" 
-      teacher = "Tommasso"
-      
-      />
-      <ReportCard
-      studentName = "Sara"
-      subject = "Economics"
-      grade = "B" 
-      teacher = "Tommasso"
-     
-      />
-      <ReportCard
-      studentName = "Baker"
-      subject = "Economics"
-      grade = "C" 
-      teacher = "Tommasso"
-      
-      />
-      <ReportCard
-      studentName = "Tim"
-      subject = "Economics"
-      grade = "D" 
-      teacher = "Tommasso"
-      
-      />
-      <ReportCard
-      studentName = "Max"
-      subject = "Economics"
-      grade = "U" 
-      teacher = "Tommasso"
-      
-      />
-    </div>
-  );
+            />
+       
+        </div>
+
+    )
 }
-export default ReportCards
+
+export default ReportCardShowcase 
+
