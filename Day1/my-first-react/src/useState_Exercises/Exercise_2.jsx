@@ -52,7 +52,7 @@ const decreaselikeCount =()=>{
           return prev-1;
         }
       });
-}
+
     return(
         <div className="LikeButton">
             <h1> media page</h1>
@@ -61,5 +61,5 @@ const decreaselikeCount =()=>{
             <button onClick={decreaselikeCount}> Unlike </button>
         </div>
     )
-}
+}}
 export default LikeCounts;
